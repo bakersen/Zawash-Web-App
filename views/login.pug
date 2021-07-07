@@ -1,5 +1,22 @@
-extends register_login_layout 
+extends layout 
 
 block content
 
-    h1 This is a test
+    .container
+        .row.mx-auto
+            form.col-lg-4.col-md-8.col.sm-12.form.mx-auto(name=form action='/dashboard' method='POST')
+                h3.logo-title ZaWash Systems
+                br
+                .form-field
+                    small#username-error
+                    input#username.form-control(type=text name=username placeholder='Enter Username')
+                    br
+                .form-field
+                    small#password-error
+                    input#password.form-control(type=text name=password placeholder='Enter Password')
+                    br
+                    button#submit.btn.btn-primary.btn-block(type='button') Login
+                    br
+                    a.forgot-password(href='/forgot-password') Forgot my password
+
+                

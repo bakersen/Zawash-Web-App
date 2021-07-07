@@ -4,7 +4,7 @@ const app = express()
 const path = require('path')
 
 // Require Routes
-const loginRoutes = require('./routes/loginRoutes')
+const homeRoutes = require('./routes/loginRoutes')
 
 // Pug Configuration
 app.set('view engine', 'pug')
@@ -15,8 +15,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname, 'public')))
 
 //Routes
-
-app.use('/login', loginRoutes)
+app.use('/', homeRoutes);
 
 
 
@@ -24,8 +23,6 @@ app.use('/login', loginRoutes)
 app.get('*', (req, res) => {
   res.send('Invalid url or Reource not found')
 })
-
-
 
 
 //Server Listening
