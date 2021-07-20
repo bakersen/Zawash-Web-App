@@ -1,0 +1,65 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title=title
+
+        //- CSS
+        link(rel="stylesheet", href="/css/style.css")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css")
+
+        //- Bootstrap Icons
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css")
+
+        //- Fonts
+        link(href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet")
+
+        //- Javascript from Bootstrap
+        script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous")
+
+    body
+        .container-fluid.custom-nav
+            nav.navbar.navbar-expand-lg
+                a.navbar-brand(href='/dashboard')
+                    h5 Zawash Dashboard
+                span.navbar-toggler(data-toggle='collapse' data-target='#navbar-menu')
+                    i.bi.bi-list
+                #navbar-menu.collapse.navbar-collapse
+                    ul.navbar-nav.left-nav.navbar-nav.left-nav.d-flex.justify-content-center
+                        li.nav-item
+                            a.nav-link(href='/dashbaord'): i.bi.bi-house-fill
+                                span Home
+                        li.nav-item
+                            a.nav-link(href='/dashboard/register'): i.bi.bi-plus-circle
+                                span Register                             
+                        li.nav-item
+                            a.nav-link(href='/dashboard/cartrack'): i.bi.bi-truck
+                                span Track Cars
+                        li.nav-item
+                            a.nav-link(href='dashboard/washertrack'): i.bi.bi-people
+                                span Track Washers
+                        li.nav-item
+                            a.nav-link(href='/dashboard/reports'): i.bi.bi-file-bar-graph
+                                span Reports
+                        //- li.nav-item.dropdown
+                        //-     a#navbarDropdown.nav-link.dropdown-toggle(href='#' role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Register 
+                        //-     .dropdown-menu
+                        //-         a.dropdown-item(href='/register-car') Register Car
+                        //-         a.dropdown-item(href='/register-washer') Register Washer
+
+                    .ml-auto
+                        span.nav-item
+                            a.nav-link(href='/'): i.bi.bi-box-arrow-right
+                                span Log out
+        
+        section
+            .container
+                .row
+                    block content
+                        
+        
+        footer 
+            p &copy; 2021 Zawash Washing Bay

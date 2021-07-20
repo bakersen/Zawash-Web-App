@@ -1,14 +1,17 @@
 body {
     background-color:#f7f8fa !important;
+    font-family: 'Nunito', sans-serif;
+    color: #323233;
 }
 
 section {
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
-/* .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    
-} */
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 600 !important;
+}
 
 /* FORM CSS */
 
@@ -68,9 +71,92 @@ a.forgot-password {
     color:#3b50f5;
 }
 
+/* NAVIGATION */
+
+a.nav-link > i {
+    font-style: normal;
+}
+
+a.nav-link > i > span {
+    margin-left:6px;
+}
+
+a.navbar-brand > h5{
+     color:#3b50f5;
+}
+
+.custom-nav {
+    background-color: white !important;
+    box-shadow: 0 1px 3px rgb(160 166 179 / 30%);
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.bi-list::before {
+    color: rgb(59, 59, 59);
+    content: "\f479";
+    font-size: 30px;
+}
+.left-nav {
+    width:86%;
+}
+
+img.logo1 {
+    width:40px;
+}
+
+a.nav-link {
+    color: #434445;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+a.nav-link:hover {
+    color: #3b50f5;
+}
+
+a.nav-link.active {
+    color: #3b50f5;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem !important;
+    padding-left: .5rem !important;
+}
+
+/*REGISTER*/
+.register-tab {
+    background-color: white;
+    padding:0 !important;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0 !important;
+}
+
+form.register {
+    padding: 30px 20px;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #3b50f5 !important;
+}
 
 /* FOOTER */
 
 footer p {
     text-align:center;
+    color:#acadaf;
 }
+
+
+/* MOBILE DEVICES */
+
+@media(max-width:600px){
+   .navbar.navbar-expand-lg {
+       padding: 10px 0;
+   }
+ }

@@ -4,18 +4,21 @@ block content
 
     .container
         .row.mx-auto
+            span.login-error
             form.col-lg-4.col-md-8.col.sm-12.form.mx-auto(name=form action='/dashboard' method='POST')
                 h3.logo-title ZaWash Systems
                 br
                 .form-field
+                    input#username.form-control(type='text' name='username' placeholder='Enter Username')
                     small#username-error
-                    input#username.form-control(type=text name=username placeholder='Enter Username' name=username)
                     br
+                    
                 .form-field
+                    
+                    input#password.form-control(type='password' name='password' placeholder='Enter Password')
                     small#password-error
-                    input#password.form-control(type=password name=password placeholder='Enter Password' name=login-password)
                     br
-                    button#submit.btn.btn-primary.btn-block(type='button') Login
+                    button#submit.btn.btn-primary.btn-block(type='submit') Login
                     br
                     a.forgot-password(href='/forgot-password') Forgot my password
 
