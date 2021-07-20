@@ -23,6 +23,7 @@ mongoose.connection
 // Require Routes
 const homeRoutes = require('./routes/loginRoutes')
 const dashboardRoutes = require('./routes/dashboardRoutes')
+const Washer = require('./models/Washer')
 
 // Pug Configuration
 app.set('view engine', 'pug')
