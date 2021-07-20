@@ -4,7 +4,6 @@ const app = express()
 const path = require('path')
 require('dotenv').config()
 const mongoose = require('mongoose')
-const passport = require('passport')
 
 //mongodb connection & set up
 mongoose.connect(process.env.DATABASE, {
@@ -20,12 +19,6 @@ mongoose.connection
     console.log(`Connection error: ${err.message}`);
 });
 
-/* Set Up Local Authentication*/
-
-passport.use(UserDetails.createStrategy())
-passport.serializeUser(UserDetails.serializeUser())
-passport.deserializeUser(UserDetails.deserializeUser())
-
 
 // Require Routes
 const homeRoutes = require('./routes/loginRoutes')
@@ -39,8 +32,6 @@ app.set('views', './views')
 //Middleware
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(passport.initialize())
-app.use(passport.session())
 
 //Routes
 app.use('/', homeRoutes);

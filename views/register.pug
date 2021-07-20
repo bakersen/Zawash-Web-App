@@ -30,7 +30,7 @@ block content
                     .form-row
                         .col-md-6.col-sm-12
                             small#doa-error
-                            input#doa.form-control(type='date' name='doa')
+                            input#doa.form-control(type='date' name='doa' placeholder='Date Of Arrival')
                             br
                         .col-md-6.col-sm-12
                             small#toa-error
@@ -55,22 +55,62 @@ block content
                     .form-row
                         .col.form-group
                             br
-                            button.btn.btn-primary.btn-block Register Car               
+                            button.btn.btn-primary.btn-block Submit      
                         
                   
             #pills-profile.tab-pane.fade(role="tabpanel" aria-labelledby="pills-profile-tab")
-                form.register(name='register-car' action='/dashboard/register/car' method='POST')
+                form.register(name='register-car' action='/dashboard/register/washer' method='POST')
                     .form-row
                         .col-md-6.col-sm-12
                             small#washname-error
-                            input#washername.form-control(type='text' name='washername' placeholder='Enter Kanaabe Name')
+                            input#washername.form-control(type='text' name='washername' placeholder="Kanaabe's Name")
+                            br
+                        .col-md-6.col-sm-12
+                            small#phonenumber-error
+                            input#phonenumber.form-control(type='text' name='phonenumber' placeholder='Phone Contact')
+                            br
+                    .form-row
+                        .col-md-6.col-sm-12
+                            small#nin-error
+                            input#nin.form-control(type='text' name='nationalid' placeholder='National ID')
+                            br
+                        .col-md-6.col-sm-12
+                            small#zawashid-error
+                            input#zawashid.form-control(type='text' name='zawashid' placeholder='Employee ID')
+                            br
+                    .form-row
+                        .col-md-6.col-sm-12
+                            small#dob-error
+                            input#dob.form-control(type='date' name='dob')
                             br
                         .col-md-6.col-sm-12
                             small#gender-error
-                            select.form-control(name="gender")
+                            select#select-washer.form-control(name='gender')
                                 option Gender
-                                option(value="female") Female
                                 option(value="male") Male
+                                option(value="female") Female
+                    .form-row
+                        .col-md-6.col-sm-12
+                            small#nextofkin-error
+                            input#nextofkin.form-control(type='text' name='nextofkin' placeholder="Kanaabe's Next Of Kin")
+                            br
+                        .col-md-6.col-sm-12
+                            small#nextofnumber-error
+                            input#nextofnumber.form-control(type='text' name='nextofnumber' placeholder='Next of Kin Contact')
+                            br
+                    .form-row
+                        .col-12
+                            small#residence-error
+                            input#residence.form-control(type='text' name='residence' placeholder="Place of Residence")
+                            br
+                    .form-row
+                        .col.form-group
+                            br
+                            button.btn.btn-primary.btn-block Submit
+
+                    
+                        
+                        
 
                 
                         
