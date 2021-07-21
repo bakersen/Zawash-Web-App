@@ -16,8 +16,14 @@ block content
                 a#pills-profile-tab.nav-link(data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false") Register Washer
             
         #pills-tabContent.tab-content
+                
             #pills-home.tab-pane.fade.show.active(role="tabpanel" aria-labelledby="pills-home-tab")
-                form.register(name='register-car' action='/dashboard/register/car' method='POST')
+                br
+                if alert == "success"
+                    div.alert.alert-success Car added successfully
+                if alert == "error"
+                    div.alert.alert-danger An error occurred, failed to add car
+                form.register(name='register-car' action='register/car' method='POST')
                     .form-row
                         .col-md-6.col-sm-12
                             small#numberplate-error
@@ -48,18 +54,22 @@ block content
                                 option(value="engine") Engine(10,000/=)
                         .col-md-6.col-sm-12
                             small#washer-error
-                            select#select-washer.form-control(name='washer')
-                                option Assign Washer
-                                option(value="sembuye") Sembuye Isaac
-                                option(value="bisaso") Bisaso Moze
-                    .form-row
+                            select.form-control(name='assigned')
+                                each washer in washers
+                                    option(value=washer._id) #{washer.washername}
+                        .form-row
                         .col.form-group
                             br
-                            button.btn.btn-primary.btn-block Submit      
+                            button.btn.btn-primary.btn-block Submit
                         
                   
             #pills-profile.tab-pane.fade(role="tabpanel" aria-labelledby="pills-profile-tab")
-                form.register(name='register-car' action='/dashboard/register/washer' method='POST')
+                br
+                if alert == "success"
+                    div.alert.alert-success Washer added successfully
+                if alert == "error"
+                    div.alert.alert-danger An error occurred, failed to add washer
+                form.register(name='register-washer' action='register/washer' method='POST')
                     .form-row
                         .col-md-6.col-sm-12
                             small#washname-error

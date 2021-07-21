@@ -5,6 +5,33 @@ const path = require('path')
 require('dotenv').config()
 const mongoose = require('mongoose')
 
+
+// Require Routes
+const homeRoutes = require('./routes/loginRoutes')
+const dashboardRoutes = require('./routes/dashboardRoutes')
+const registerRoutes = require('./routes/registerRoutes')
+const Washer = require('./models/Washer')
+const Car = require('./models/Car')
+
+// Pug Configuration
+app.set('view engine', 'pug')
+app.set('views', './views')
+
+
+//Middleware
+app.use(express.urlencoded({extended:true}))
+app.use(express.static(path.join(__dirname, 'public')))
+
+//Routes
+app.use('/', homeRoutes)
+app.use('/dashboard', dashboardRoutes)
+app.use('/register', registerRoutes)
+
+//If a Route doesnt exist
+app.get('*', (req, res) => {
+  res.send('Invalid url or Reource not found')
+})
+
 //mongodb connection & set up
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
@@ -18,33 +45,6 @@ mongoose.connection
   .on('error', (err) => {
     console.log(`Connection error: ${err.message}`);
 });
-
-
-// Require Routes
-const homeRoutes = require('./routes/loginRoutes')
-const dashboardRoutes = require('./routes/dashboardRoutes')
-const Washer = require('./models/Washer')
-
-// Pug Configuration
-app.set('view engine', 'pug')
-app.set('views', './views')
-
-
-//Middleware
-app.use(express.urlencoded({extended:true}))
-app.use(express.static(path.join(__dirname, 'public')))
-
-//Routes
-app.use('/', homeRoutes);
-app.use('/dashboard', dashboardRoutes);
-
-
-
-
-//If a Route doesnt exist
-app.get('*', (req, res) => {
-  res.send('Invalid url or Reource not found')
-})
 
 
 //Server Listening

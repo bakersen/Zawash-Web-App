@@ -9,15 +9,12 @@ const carSchema = new mongoose.Schema({
     type: String,
     trim: true,
     },
-    doa: {
-        type: Date,
-    },
     datetimeArrival: {
         type: Date,
     },
-    washer: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Washer',
+    assigned: {
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'Washer',
     },
     gender: {
         type: String,
