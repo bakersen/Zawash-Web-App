@@ -10,6 +10,7 @@ const mongoose = require('mongoose')
 const homeRoutes = require('./routes/loginRoutes')
 const dashboardRoutes = require('./routes/dashboardRoutes')
 const registerRoutes = require('./routes/registerRoutes')
+const trackcarsRoutes = require('./routes/trackcarsRoutes')
 const Washer = require('./models/Washer')
 const Car = require('./models/Car')
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', homeRoutes)
 app.use('/dashboard', dashboardRoutes)
 app.use('/register', registerRoutes)
+app.use('/trackcars', trackcarsRoutes)
 
 //If a Route doesnt exist
 app.get('*', (req, res) => {

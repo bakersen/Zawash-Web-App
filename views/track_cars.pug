@@ -1,0 +1,41 @@
+extends dashboard
+
+block content
+
+    .register-tab.col-lg-10.col-sm-12.col-md-10.mx-auto
+       h3(style='text-align:center;') Cars Registered
+       table.table
+            thead
+                tr
+                    th Registered Car
+                    th Type
+                    th Washer Assigned 
+                    th Package Selected
+                    th Package Price
+            tbody
+                if carlist.length
+                    each car in carlist 
+
+                        tr
+                            td #{car.numberplate}
+                            td #{car.cartype}
+                            td #{car.assigned}
+                            td #{car.package}
+                            td #{car.packagePrice}
+            
+
+    
+
+
+
+
+                    
+                        
+                        
+
+                
+                        
+                    
+
+          
+                    
