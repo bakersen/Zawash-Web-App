@@ -1,0 +1,40 @@
+extends dashboard
+
+block content
+
+    .register-tab.col-lg-10.col-sm-12.col-md-10.mx-auto
+       h3(style='text-align:center;') Registered Washers
+       table.table
+            thead
+                tr
+                    th Kanaabe's Name
+                    th Employee ID
+                    th Phone Number
+                    th Place of Residence
+            tbody
+                if kanabelist.length
+                    each kanabe in kanabelist
+                        tr
+                            td #{kanabe.washername}
+                            td #{kanabe.zawashid}
+                            td #{kanabe.phonenumber}
+                            td #{kanabe.residence}
+                else
+                    h2(style="color:#d6d6d6") No Washer Details Available
+            
+
+    
+
+
+
+
+                    
+                        
+                        
+
+                
+                        
+                    
+
+          
+                    

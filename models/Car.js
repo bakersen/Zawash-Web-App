@@ -13,8 +13,8 @@ const carSchema = new mongoose.Schema({
         type: Date,
     },
     assigned: {
-    type:mongoose.Schema.Types.ObjectId,
-    ref:'Washer',
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Washer',
     },
     gender: {
         type: String,

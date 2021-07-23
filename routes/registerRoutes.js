@@ -35,11 +35,11 @@ router.get('/', async (req, res)=> {
 });
 
 router.get('/car', (req, res)=> {
-    res.render('register_car', {title:'Car Registration Succeded'})
+    res.render('car_success', {title:'Car Registration Succeded'})
 })
 
 router.get('/washer', (req, res)=> {
-    res.render('register_washer', {title:'Registration Succeded'})
+    res.render('washer_success', {title:'Registration Succeded'})
 })
 
 router.get('/failed', (req, res)=> {
@@ -76,11 +76,9 @@ router.post('/car', async(req, res)=> {
         data.packagePrice = packageDetails['packagePrice']
         data.washerFee = packageDetails['washerFee']
 
-
         const car = new Car(data)
         await car.save()
         res.redirect('car')
-        console.log(req.body)
     }
     catch (err) {
         res.status(400).render('failed')
