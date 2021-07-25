@@ -91,27 +91,27 @@ block content
                             input#numberplate.form-control(type='text' name='numberplate' placeholder='Enter Car Number Plate')
                             .show-error
                                 small#numberplate-error
-                                small.general-error
+                                small.car-error
                         .col-md-6.col-sm-12
                             input#cartype.form-control(type='text' name='cartype' placeholder='Enter Car Type')
                             .show-error
                                 small#cartype-error
-                                small.general-error
+                                small.car-error
                     .form-row
                         .col-md-6.col-sm-12                            
                             input#doa.form-control(type='date' name='doa' placeholder='Date Of Arrival')
                             .show-error
                                 small#doa-error
-                                small.general-error
+                                small.car-error
                         .col-md-6.col-sm-12                            
                             input#toa.form-control(type='time' name='toa')
                             .show-error
                                 small#toa-error
-                                small.general-error
+                                small.car-error
                     .form-row
                         .col-md-6.col-sm-12                            
                             select#select-package.form-control(name='package')
-                                option Select Package
+                                option(value='') Select Package
                                 option(value="smallcars") Small Cars(10,000/=)
                                 option(value="medium") Medium (15,000/=)
                                 option(value="fullwash") Full Wash(20,000/=)
@@ -119,19 +119,18 @@ block content
                                 option(value="engine") Engine(10,000/=)
                             .show-error
                                 small#package-error
-                                small.general-error
+                                small.car-error
                         .col-md-6.col-sm-12                         
                             select#assigned.form-control(name='assigned')
-                                option Assign Washer
+                                option(value="") Assign Washer
                                 each washer in washers
                                     option(value=washer._id) #{washer.washername}
                             .show-error
                                 small#assigned-error
-                                small.general-error
-                        .form-row
+                                small.car-error
                         .col.form-group
                             br
-                            button#submit-car.btn.btn-primary.btn-block(type="button") Submit
+                            button#submit-car.btn.btn-primary.btn-block(type="button" onclick="checkEmptyField()") Submit
                         
                   
           

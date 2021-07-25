@@ -259,8 +259,6 @@ residence.addEventListener('input', resiInput)
 residence.addEventListener('focusout', resifocusOut)
 
 
-
-
 //REGISTER CAR VALIDATIONS
 
 //Number Plate
@@ -284,24 +282,26 @@ const package = document.getElementById('select-package');
 const packageError =  document.getElementById('package-error');
 
 //Assigne Washer
-const assigned = document.getElementById('assigned');
-const assignedError =  document.getElementById('assigned-error');
+const assigned = document.getElementById('assigned')
+const assignedError =  document.getElementById('assigned-error')
 
 //Submit Button sumbit-washer
-const buttonCar = document.getElementById('submit-car');
+const buttonCar = document.getElementById('submit-car')
+
+const carError = document.querySelectorAll('.car-error')
 
 
 //Check for empty fields
 let checkEmptyField =()=> {
        
-    requiredInputs = [numberplate, cartype, doa, toa, package, assigned]
+    required = [numberplate, cartype, doa, toa, package, assigned]
     errorCounter = 0
 
-    for(let i=0; i<requiredInputs.length; i++){
-         if(requiredInputs[i].value==""){
+    for(let i=0; i<required.length; i++){
+         if(required[i].value==""){
              errorCounter ++
-             requiredInputs[i].style.border="1px solid red"
-             generalError[i].textContent='Please Enter Required Field';
+             required[i].style.border="1px solid red"
+             carError[i].textContent='Please Enter Required Field';
          }         
     }
 
@@ -315,19 +315,19 @@ let checkEmptyField =()=> {
 //Validate Number Plate
  let numFocusIn =()=> {
     numberplate.style.border="1px solid #ced4da"
-    generalError[0].textContent=''
+    carError[0].textContent=''
 }
 
 let numInput =()=> {
     const numbRegex = /^U([A-E]{1})([A-Z]{1})[0-9]{3}[A-Z]$/
 
     if(numbRegex.test(numberplate.value)) {
-       washError.innerHTML='Looks fine'
-       washError.style.color='green'
+       numplateError.innerHTML='Looks fine'
+       numplateError.style.color='green'
        numberplate.style.border="1px solid green"
 
     } else {
-        numplateError.innerHTML='Must be 8 characters min starting with capital letter'
+        numplateError.innerHTML='Enter valid number plate e.g UAAxxxH'
         numplateError.style.color='red'
         numberplate.style.border="1px solid red"
                
@@ -336,9 +336,121 @@ let numInput =()=> {
 
 let numfocusOut =()=> {
     numberplate.style.border="1px solid #ced4da"
-    numplateErrorinnerHTML='';
+    numplateError.innerHTML='';
 }
 
 numberplate.addEventListener('focusin', numFocusIn)
 numberplate.addEventListener('input', numInput)
 numberplate.addEventListener('focusout', numfocusOut)
+
+//Validate Car Type
+let carFocusin =()=> {
+    cartype.style.border="1px solid #ced4da"
+    carError[1].textContent=''
+}
+
+let carInput =()=> {
+    const cartypeEx = /^[A-Za-z]+\s[A-Za-z]$/ 
+
+    if(cartypeEx.test(cartype.value)) {
+       cartypeError.innerHTML='Looks fine';
+       cartypeError.style.color='green';
+       cartype.style.border="1px solid green"  
+    } else {
+        cartypeError.innerHTML='Should start with capital letter';
+        cartypeError.style.color='red';
+        cartype.style.border="1px solid red"          
+    }
+}
+
+let carfocusOut =()=> {
+    cartype.style.border="1px solid #ced4da"
+    cartypeError.innerHTML='';
+}
+
+cartype.addEventListener('focusin', carFocusin)
+cartype.addEventListener('input', carInput)
+cartype.addEventListener('focusout', carfocusOut)
+
+//Validate Date of Arrival
+ let doaFocusIn =()=> {
+    doa.style.border="1px solid #ced4da"
+    carError[2].textContent=''
+}
+
+let doafocusOut =()=> {
+    doa.style.border="1px solid #ced4da"
+    doaError.innerHTML='';
+}
+
+doa.addEventListener('focusin', doaFocusIn)
+doa.addEventListener('focusout', doafocusOut)
+
+//Validate Time of Arrival
+ let toaFocusIn =()=> {
+    toa.style.border="1px solid #ced4da"
+    carError[3].textContent=''
+}
+
+let toafocusOut =()=> {
+    toa.style.border="1px solid #ced4da"
+    toaError.innerHTML='';
+}
+
+toa.addEventListener('focusin', toaFocusIn)
+toa.addEventListener('focusout', toafocusOut)
+
+//Validate packages
+ let packageFocusIn =()=> {
+    package.style.border="1px solid #ced4da"
+    carError[4].textContent=''
+}
+
+let packageInput =()=> {
+     if(package.value==='') {
+        packageError.innerHTML='Must be atleast 5 characters starting with capital letter';
+        packageError.style.color='red';
+        package.style.border="1px solid red"   
+    } else {
+        packageError.innerHTML='Looks fine';
+        packageError.style.color='green';
+        package.style.border="1px solid green"  
+    }       
+}
+
+let packagefocusOut =()=> {
+    package.style.border="1px solid #ced4da"
+    packageError.innerHTML='';
+}
+
+package.addEventListener('focusin', packageFocusIn)
+package.addEventListener('input', packageInput)
+package.addEventListener('focusout', packagefocusOut)
+
+
+//Validate Select
+ let assignFocusIn =()=> {
+    assigned.style.border="1px solid #ced4da"
+    carError[5].textContent=''
+}
+
+let assignInput =()=> {
+     if(assigned.value==='') {
+        assignedError.innerHTML='Must be atleast 5 characters starting with capital letter';
+        assignedError.style.color='red';
+        assigned.style.border="1px solid red"   
+    } else {
+        assignedError.innerHTML='Looks fine';
+        assignedError.style.color='green';
+        assigned.style.border="1px solid green"  
+    }       
+}
+
+let assignfocusOut =()=> {
+    assigned.style.border="1px solid #ced4da"
+    assignedError.innerHTML='';
+}
+
+assigned.addEventListener('focusin', assignFocusIn)
+assigned.addEventListener('input', assignInput)
+assigned.addEventListener('focusout', assignfocusOut)
