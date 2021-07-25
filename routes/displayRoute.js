@@ -10,8 +10,7 @@ const Car = require('../models/Car')
 router.get('/listcars', async (req, res)=> {
 
     try {
-        let registeredCars = await Car.find() .populate("assigned")
-        console.log(registeredCars)        
+        let registeredCars = await Car.find() .populate("assigned")              
         res.render('display_cars', {title:'Registered Cars- Zawash', carlist: registeredCars})
     }
     catch (err) {
@@ -24,8 +23,7 @@ router.get('/listcars', async (req, res)=> {
 router.get('/listwashers', async (req, res)=> {
 
     try {
-        let registeredWashers = await Washer.find()
-        console.log(registeredWashers)        
+        let registeredWashers = await Washer.find()           
         res.render('display_washer', {title:'Registered Washers - Zawash', kanabelist: registeredWashers})
     }
     catch (err) {

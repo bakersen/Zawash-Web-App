@@ -4,7 +4,8 @@ const washerSchema = new mongoose.Schema({
 
     washername: {
         type: String,
-        trim: true
+        trim: true,
+        required:true
     },
     phonenumber: {
         type: Number,

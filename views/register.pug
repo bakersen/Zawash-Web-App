@@ -11,113 +11,130 @@ block content
 
         ul#pills-tab.nav.nav-pills.nav-fill(role="tablist")
             li.nav-item(role="presentation")
-                a#pills-home-tab.nav-link.active(data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true") Register Car
+                a#pills-profile-tab.nav-link.active(data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true") Register Washer
             li.nav-item(role="presentation")
-                a#pills-profile-tab.nav-link(data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false") Register Washer
+                a#pills-home-tab.nav-link(data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false") Register Car
+            
             
         #pills-tabContent.tab-content
-                
-            #pills-home.tab-pane.fade.show.active(role="tabpanel" aria-labelledby="pills-home-tab")
+
+            #pills-profile.tab-pane.fade.show.active(role="tabpanel" aria-labelledby="pills-profile-tab")
                 br
-                if alert == "success"
-                    div.alert.alert-success Car added successfully
-                if alert == "error"
-                    div.alert.alert-danger An error occurred, failed to add car
+                //- if alert == "success"
+                //-     div.alert.alert-success Washer added successfully
+                //- if alert == "error"
+                //-     div.alert.alert-danger An error occurred, failed to add washer
+                form.register(name='registerwasher' action='register/washer'  method='POST')
+                    .form-row
+                        .col-md-6.col-sm-12
+                            
+                            input#washername.form-control(type='text' name='washername' placeholder="Kanaabe's Name")
+                            .show-error
+                                small#washname-error
+                                small.general-error
+                        .col-md-6.col-sm-12                           
+                            input#phonenumber.form-control(type='text' name='phonenumber' placeholder='Phone Contact')
+                            .show-error
+                                small#phonenumber-error
+                                small.general-error
+                    .form-row
+                        .col-md-6.col-sm-12                            
+                            input#nin.form-control(type='text' name='nationalid' placeholder='National ID')
+                            .show-error 
+                                small#nin-error 
+                                small.general-error
+                            
+                        .col-md-6.col-sm-12                            
+                            input#zawashid.form-control(type='text' name='zawashid' placeholder='Employee ID')
+                            .show-error 
+                                small#zawashid-error
+                                small.general-error
+                    .form-row
+                        .col-md-6.col-sm-12                            
+                            input#dob.form-control(type='date'  max="2003-12-01" onfocus="(this.type='date')" name='dob')
+                            .show-error 
+                                small#dob-error.general-error
+                        .col-md-6.col-sm-12                                                   
+                            select#gender.form-control(name='gender')
+                                option(value="" disabled) Gender
+                                option(value="male") Male
+                                option(value="female") Female
+                            .show-error 
+                                small#gender-error
+                                small.general-error
+                    //- .form-row
+                    //-     .col-md-6.col-sm-12
+                    //-         input#nextofkin.form-control(type='text' name='nextofkin' placeholder="Kanaabe's Next Of Kin")
+                    //-         .show-error 
+                    //-             small#nextofkin-error
+                    //-     .col-md-6.col-sm-12                           
+                    //-         input#nextofnumber.form-control(type='text' name='nextofnumber' placeholder='Next of Kin Contact')
+                    //-         .show-error 
+                    //-             small#nextofnumber-error
+                    .form-row
+                        .col-12                           
+                            input#residence.form-control(type='text' name='residence' placeholder="Place of Residence")
+                            .show-error
+                                small#residence-error
+                                small.general-error
+                    .form-row
+                        .col.form-group
+                            br
+                            button#sumbit-washer.btn.btn-primary.btn-block(type="button" onclick="checkEmpty()") Submit
+
+                
+            #pills-home.tab-pane.fade(role="tabpanel" aria-labelledby="pills-home-tab")
+                
                 form.register(name='register-car' action='register/car' method='POST')
                     .form-row
-                        .col-md-6.col-sm-12
-                            small#numberplate-error
+                        .col-md-6.col-sm-12                            
                             input#numberplate.form-control(type='text' name='numberplate' placeholder='Enter Car Number Plate')
-                            br
+                            .show-error
+                                small#numberplate-error
+                                small.general-error
                         .col-md-6.col-sm-12
-                            small#cartype-error
                             input#cartype.form-control(type='text' name='cartype' placeholder='Enter Car Type')
-                            br
+                            .show-error
+                                small#cartype-error
+                                small.general-error
                     .form-row
-                        .col-md-6.col-sm-12
-                            small#doa-error
+                        .col-md-6.col-sm-12                            
                             input#doa.form-control(type='date' name='doa' placeholder='Date Of Arrival')
-                            br
-                        .col-md-6.col-sm-12
-                            small#toa-error
+                            .show-error
+                                small#doa-error
+                                small.general-error
+                        .col-md-6.col-sm-12                            
                             input#toa.form-control(type='time' name='toa')
-                            br
+                            .show-error
+                                small#toa-error
+                                small.general-error
                     .form-row
-                        .col-md-6.col-sm-12
-                            small#package-error
+                        .col-md-6.col-sm-12                            
                             select#select-package.form-control(name='package')
                                 option Select Package
-                                option(value="smallcars") Small cars(10,000/=)
-                                option(value="medium") Medium(15,000/=)
-                                option(value="fullwash") Full wash(20,000/=)
-                                option(value="bodaboda") Boda-boda(5,000/=)
+                                option(value="smallcars") Small Cars(10,000/=)
+                                option(value="medium") Medium (15,000/=)
+                                option(value="fullwash") Full Wash(20,000/=)
+                                option(value="bodaboda") Boda Boda(5,000/=)
                                 option(value="engine") Engine(10,000/=)
-                        .col-md-6.col-sm-12
-                            small#washer-error
-                            select.form-control(name='assigned')
+                            .show-error
+                                small#package-error
+                                small.general-error
+                        .col-md-6.col-sm-12                         
+                            select#assigned.form-control(name='assigned')
+                                option Assign Washer
                                 each washer in washers
                                     option(value=washer._id) #{washer.washername}
+                            .show-error
+                                small#assigned-error
+                                small.general-error
                         .form-row
                         .col.form-group
                             br
-                            button.btn.btn-primary.btn-block Submit
+                            button#submit-car.btn.btn-primary.btn-block(type="button") Submit
                         
                   
-            #pills-profile.tab-pane.fade(role="tabpanel" aria-labelledby="pills-profile-tab")
-                br
-                if alert == "success"
-                    div.alert.alert-success Washer added successfully
-                if alert == "error"
-                    div.alert.alert-danger An error occurred, failed to add washer
-                form.register(name='register-washer' action='register/washer' method='POST')
-                    .form-row
-                        .col-md-6.col-sm-12
-                            small#washname-error
-                            input#washername.form-control(type='text' name='washername' placeholder="Kanaabe's Name")
-                            br
-                        .col-md-6.col-sm-12
-                            small#phonenumber-error
-                            input#phonenumber.form-control(type='text' name='phonenumber' placeholder='Phone Contact')
-                            br
-                    .form-row
-                        .col-md-6.col-sm-12
-                            small#nin-error
-                            input#nin.form-control(type='text' name='nationalid' placeholder='National ID')
-                            br
-                        .col-md-6.col-sm-12
-                            small#zawashid-error
-                            input#zawashid.form-control(type='text' name='zawashid' placeholder='Employee ID')
-                            br
-                    .form-row
-                        .col-md-6.col-sm-12
-                            small#dob-error
-                            input#dob.form-control(type='date' name='dob')
-                            br
-                        .col-md-6.col-sm-12
-                            small#gender-error
-                            select#select-washer.form-control(name='gender')
-                                option Gender
-                                option(value="male") Male
-                                option(value="female") Female
-                    .form-row
-                        .col-md-6.col-sm-12
-                            small#nextofkin-error
-                            input#nextofkin.form-control(type='text' name='nextofkin' placeholder="Kanaabe's Next Of Kin")
-                            br
-                        .col-md-6.col-sm-12
-                            small#nextofnumber-error
-                            input#nextofnumber.form-control(type='text' name='nextofnumber' placeholder='Next of Kin Contact')
-                            br
-                    .form-row
-                        .col-12
-                            small#residence-error
-                            input#residence.form-control(type='text' name='residence' placeholder="Place of Residence")
-                            br
-                    .form-row
-                        .col.form-group
-                            br
-                            button.btn.btn-primary.btn-block Submit
-
+          
                     
                         
                         

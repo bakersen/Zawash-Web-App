@@ -55,7 +55,6 @@ router.post('/washer', async(req, res)=> {
         const washer = new Washer(req.body)
         await washer.save()
         res.redirect('washer')
-        console.log(req.body)
     }
     catch (err) {
         res.status(400).render('failed')
